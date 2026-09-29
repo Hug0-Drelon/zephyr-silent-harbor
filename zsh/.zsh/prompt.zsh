@@ -31,5 +31,25 @@ git_branch_prompt() {
 	echo " %F{${color}}${branch}%f"
 }
 
+typeset -g _prompt_last_status=0
+
+prompt_precmd() {
+	_prompt_last_status=$?
+}
+
+# %F{8} dim $ or #; red on last exit ≠ 0 (not SIGINT / Ctrl+C → 130)
+prompt_char_prompt() {
+	local sig='$' color=8
+
+	(( EUID == 0 )) && sig='#'
+	if (( _prompt_last_status != 0 && _prompt_last_status != 130 )); then
+		color=red
+	fi
+
+	echo " %F{${color}}${sig}%f"
+}
+
+precmd_functions+=(prompt_precmd)
+
 setopt PROMPT_SUBST
-PROMPT='%n@%m %1~$(git_branch_prompt) $ '
+PROMPT='%F{8}%n@%m%f %1~$(git_branch_prompt)$(prompt_char_prompt) '
