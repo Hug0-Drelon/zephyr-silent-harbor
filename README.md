@@ -8,7 +8,7 @@ Modular zsh setup: login env in `.zprofile`, interactive shell in `.zshrc`, shar
 - Optional: [Rust](https://rustup.rs) (`~/.cargo/env`), [OrbStack](https://orbstack.dev), Node/npm, Git
 
 ```bash
-brew install zsh-syntax-highlighting zsh-history-substring-search zoxide thefuck
+brew install zsh-syntax-highlighting zsh-history-substring-search zoxide thefuck fzf
 ```
 
 ## Install
