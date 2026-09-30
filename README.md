@@ -23,10 +23,10 @@ Syntax highlighting rules:
 - **Magenta** — ahead, behind, or diverged vs upstream
 - **Green** — clean working tree (or no upstream)
 
-**Prompt** (`prompt.zsh`):
+**Prompt** (`prompt.zsh`) **`$`** / **`#`** ( **`#`** when root):
 
-- **`$`** / **`#`** — **dim** ( **`#`** when root)
-- **`$`** / **`#`** — **red** when previous command failed (not Ctrl+C / exit 130)
+- **Dim** when previous command passed
+- **Red** when previous command failed (not Ctrl+C / exit 130)
 
 **Interactive tweaks** (`interactive.zsh`): shared deduplicated history (`~/.zsh_history`, 10k lines); `autocd` and `extendedglob`; `noclobber` (`>|` to overwrite); `rm *` guard + 10s wait; `#` comments on the line; Unicode combining chars in the editor.
 
