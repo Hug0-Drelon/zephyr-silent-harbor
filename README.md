@@ -2,6 +2,34 @@
 
 Modular zsh setup: login env in `.zprofile`, interactive shell in `.zshrc`, shared bits under `.zsh/`.
 
+## Syntax highlighting & interactive defaults
+
+**Colors** ([zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting), tuned in `plugins.zsh`):
+
+- **Blue** — command word on `PATH` (`arg0`); **blue + underline** for precommands (`sudo`, `command`, …) and similar cases.
+- **Red (bold)** — shell syntax the highlighter treats as invalid (`unknown-token`).
+- **Default / other colors** — options, quotes, paths, globs, etc. (plugin defaults).
+
+Syntax highlighting rules:
+
+- Checks **zsh commands** only, not app subcommands
+- **Blue** — valid command word
+- **Red (bold)** — invalid or unknown command / shell token
+
+**Git branch** (`prompt.zsh`, first match wins):
+
+- **Yellow** — unstaged or untracked changes
+- **Cyan** — staged changes only
+- **Magenta** — ahead, behind, or diverged vs upstream
+- **Green** — clean working tree (or no upstream)
+
+**Prompt** (`prompt.zsh`):
+
+- **`$`** / **`#`** — **dim** ( **`#`** when root)
+- **`$`** / **`#`** — **red** when previous command failed (not Ctrl+C / exit 130)
+
+**Interactive tweaks** (`interactive.zsh`): shared deduplicated history (`~/.zsh_history`, 10k lines); `autocd` and `extendedglob`; `noclobber` (`>|` to overwrite); `rm *` guard + 10s wait; `#` comments on the line; Unicode combining chars in the editor.
+
 ## Prerequisites
 
 - macOS with [Homebrew](https://brew.sh) (paths assume Apple Silicon `/opt/homebrew`)
