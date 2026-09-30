@@ -41,17 +41,15 @@ brew install zsh-syntax-highlighting zsh-history-substring-search zoxide thefuck
 
 ## Install
 
-Clone the repo, then symlink from the `zsh/` directory (set `DOTFILES` to your clone path):
+Clone the repo, run the setup script, then reload the shell:
 
 ```bash
-DOTFILES="$HOME/path/to/zephyr-silent-harbor"
-
-ln -sfn "$DOTFILES/zsh/.zshrc"    "$HOME/.zshrc"
-ln -sfn "$DOTFILES/zsh/.zprofile" "$HOME/.zprofile"
-ln -sfn "$DOTFILES/zsh/.zsh"      "$HOME/.zsh"
+git clone git@github.com:Hug0-Drelon/zephyr-silent-harbor.git
+sh zephyr-silent-harbor/set-up.zsh
+exec zsh -l
 ```
 
-If `~/.zsh` is already a real directory, move or back it up before linking. Open a new terminal or run `exec zsh -l`.
+If `~/.zsh` is already a real directory (not a symlink), move or back it up before running `set-up.zsh`.
 
 ## Machine-specific env
 
@@ -59,4 +57,4 @@ Copy or create `zsh/.zsh/env.local.sh` (gitignored) for per-machine exports, e.g
 
 ## Security
 
-Do not commit API keys, tokens, passwords, or other secrets — use `env.local.sh` only. History, zoxide data, and session files stay in `$HOME`, not this repo.
+Do not commit API keys, tokens, passwords, or other secrets — use `zsh/.zsh/env.local.sh` only. History, zoxide data, and session files stay in `$HOME`, not this repo.
