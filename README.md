@@ -55,6 +55,24 @@ If `~/.zsh` is already a real directory (not a symlink), move or back it up befo
 
 Copy or create `zsh/.zsh/env.local.sh` (gitignored) for per-machine exports, e.g. `XDEBUG_TRIGGER=yes`. Sourced from `env.sh` after shared defaults.
 
+## Ollama
+
+**Setup:** Run `ollama/set-up.zsh` once to create local model variants from the modelfiles in `ollama/modelfiles/` (for example `qwen3.5-9b-resident`). The base weights are shared between Zed (via Ollama) and any `ollama serve` instances. Launchd env is synced when you start an interactive zsh session (see below).
+
+`zsh/.zsh/ai.zsh` syncs the Ollama server environment with launchd once per
+shell session. It is skipped silently if `ollama` is not installed, or if
+already run in the current session.
+
+- Values live in `zsh/.zsh/env.local.sh` (gitignored, per-machine): unset
+  variables are simply not applied.
+- A one-time prerequisite (run manually), see `ollama/set-up.zsh`.
+- `OLLAMA_KV_CACHE_TYPE` is server-wide. If a model's architecture does not
+  support FlashAttention, Ollama silently falls back to an f16 KV cache for
+  that model.
+- `OLLAMA_MAX_LOADED_MODELS=1` keeps a single model in memory at a time. On a
+  16 GB machine this prevents two models from competing for RAM; remove this
+  variable in `env.local.sh` on machines with more headroom.
+
 ## Security
 
 Do not commit API keys, tokens, passwords, or other secrets — use `zsh/.zsh/env.local.sh` only. History, zoxide data, and session files stay in `$HOME`, not this repo.
