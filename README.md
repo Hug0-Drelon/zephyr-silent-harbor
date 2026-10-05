@@ -35,7 +35,7 @@ Syntax highlighting rules:
 ## Prerequisites
 
 - macOS with [Homebrew](https://brew.sh) (paths assume Apple Silicon `/opt/homebrew`)
-- Optional: [Rust](https://rustup.rs) (`~/.cargo/env`), [OrbStack](https://orbstack.dev), Node/npm, Git
+- Optional: [Rust](https://rustup.rs) (`~/.cargo/env`), [OrbStack](https://orbstack.dev), [Ollama](https://ollama.com), Node/npm, Git
 
 ```bash
 brew install zsh-syntax-highlighting zsh-history-substring-search zoxide thefuck fzf
