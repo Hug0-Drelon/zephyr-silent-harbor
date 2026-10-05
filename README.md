@@ -2,6 +2,8 @@
 
 Modular zsh setup: login env in `.zprofile`, interactive shell in `.zshrc`, shared bits under `.zsh/`.
 
+Coding agents (Zed, Cursor, …): see [AGENTS.md](AGENTS.md).
+
 ## Syntax highlighting & interactive defaults
 
 **Colors** ([zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting), tuned in `plugins.zsh`):
