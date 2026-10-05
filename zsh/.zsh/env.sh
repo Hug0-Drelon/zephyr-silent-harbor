@@ -6,7 +6,8 @@ fi
 SHELL_ENV_LOADED=1
 export SHELL_ENV_LOADED
 
-export LANG=C
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 . "$HOME/.zsh/tools/cargo.sh"
 
