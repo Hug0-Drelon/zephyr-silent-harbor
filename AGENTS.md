@@ -13,6 +13,8 @@ Personal **zsh** dotfiles for **macOS 26+**, Apple Silicon (`/opt/homebrew`), pl
 - `env.sh` / `tools/*.sh`: POSIX `sh`, idempotent (`SHELL_ENV_LOADED`). `*.zsh`: zsh-only; tabs per `.editorconfig`.
 - Per-machine overrides: `zsh/.zsh/env.local.sh` (gitignored) — secrets, dev toggles, `OLLAMA_*`.
 
+Commit only when asked. Use conventional commits.
+
 ## Security
 
 Never commit API keys, tokens, passwords, private URLs, SSH keys, `.env`, or shell history. Scan diffs for leaks before commit; rotate anything that was pushed.
