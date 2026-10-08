@@ -33,3 +33,9 @@ setopt NOCLOBBER
 setopt RM_STAR_WAIT
 setopt interactivecomments
 setopt COMBINING_CHARS
+
+# Treat path and identifier punctuation as word boundaries for Option+Arrow.
+WORDCHARS=${WORDCHARS//\//}
+WORDCHARS=${WORDCHARS//-/}
+WORDCHARS=${WORDCHARS//_/}
+WORDCHARS=${WORDCHARS//./}
